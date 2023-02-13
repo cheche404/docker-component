@@ -1,0 +1,28 @@
+version: '3'
+services:
+  # 访问地址：http://localhost:15672 username: guest, password: guest
+  rabbit1:
+    image: rabbitmq:3-management
+    hostname: rabbit1
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_ERLANG_COOKIE='rabbitmqcookie'
+      - RABBITMQ_NODENAME=rabbit@rabbit1
+
+  rabbit2:
+    image: rabbitmq:3-management
+    hostname: rabbit2
+    environment:
+      - RABBITMQ_ERLANG_COOKIE='rabbitmqcookie'
+      - RABBITMQ_NODENAME=rabbit@rabbit2
+      - RABBITMQ_CLUSTER_WITH=rabbit1
+
+  rabbit3:
+    image: rabbitmq:3-management
+    hostname: rabbit3
+    environment:
+      - RABBITMQ_ERLANG_COOKIE='rabbitmqcookie'
+      - RABBITMQ_NODENAME=rabbit@rabbit3
+      - RABBITMQ_CLUSTER_WITH=rabbit1

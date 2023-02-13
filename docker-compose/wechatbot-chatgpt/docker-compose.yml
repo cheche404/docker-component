@@ -1,0 +1,21 @@
+version: '2'
+services:
+  wechatbot:
+    image: docker.mirrors.sjtug.sjtu.edu.cn/qingshui869413421/wechatbot:latest
+    container_name: wechatbot
+    environment:
+      # 时区上海
+      TZ: Asia/Shanghai
+      # root 密码
+      APIKEY: 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
+      AUTO_PASS: false
+      SESSION_TIMEOUT: 60s
+      MODEL: text-davinci-003
+      MAX_TOKENS: 512
+      TEMPREATURE: 0.9
+      REPLY_PREFIX=东阳ChatGPT:
+      SESSION_CLEAR_TOKEN: 下一个问题
+
+
+
+

@@ -1,0 +1,17 @@
+version: '3'
+services:
+  redis-node-1:
+    image: redis:6.0-alpine
+    command: redis-server --port 6379 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6379:6379"
+  redis-node-2:
+    image: redis:6.0-alpine
+    command: redis-server --port 6380 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6380:6380"
+  redis-node-3:
+    image: redis:6.0-alpine
+    command: redis-server --port 6381 --cluster-enabled yes --cluster-config-file nodes.conf --cluster-node-timeout 5000
+    ports:
+      - "6381:6381"
