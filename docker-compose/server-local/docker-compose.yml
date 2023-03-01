@@ -182,3 +182,11 @@ services:
       - admin.config-center=zookeeper://10.81.86.129:2181
       - admin.metadata-report.address=zookeeper://10.81.86.129:2181
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    environment:
+      GF_SERVER_ROOT_URL: http://localhost:3000
+      GF_SECURITY_ADMIN_PASSWORD: dongyang106
