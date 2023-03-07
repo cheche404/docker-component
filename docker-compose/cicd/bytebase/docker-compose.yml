@@ -1,0 +1,13 @@
+version: '3'
+services:
+  byte-base:
+    image: bytebase/bytebase:1.13.0
+    container_name: byte-base
+    ports:
+      - 5678:80
+    volumes:
+      - D:/docker-compose/bytebase:/var/opt/bytebase
+#    command:
+#      --health-cmd="curl --fail http://10。81.86.129:5678/healthz || exit 1"
+#      --health-interval=5m
+#      --health-timeout=60s
