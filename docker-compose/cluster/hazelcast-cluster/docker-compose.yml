@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+  hazelcast-node-1:
+    image: hazelcast/hazelcast
+    container_name: hazelcast1
+    environment:
+      - JAVA_OPTS=-Dhazelcast.local.publicAddress=10.81.86.105:5701
+      - HZ_NETWORK_JOIN_AUTODETECTION_ENABLED=false
+      - HZ_NETWORK_JOIN_TCPIP_ENABLED=true
+      - HZ_NETWORK_JOIN_TCPIP_MEMBERS=hazelcast1,hazelcast2
+    ports:
+      - "5701:5701"
+    networks:
+      - hazelcast-net
+
+  hazelcast-node-2:
+    image: hazelcast/hazelcast
+    container_name: hazelcast2
+    environment:
+      - JAVA_OPTS=-Dhazelcast.local.publicAddress=10.81.86.105:5702
+      - HZ_NETWORK_JOIN_AUTODETECTION_ENABLED=false
+      - HZ_NETWORK_JOIN_TCPIP_ENABLED=true
+      - HZ_NETWORK_JOIN_TCPIP_MEMBERS=hazelcast1,hazelcast2
+    ports:
+      - "5702:5701"
+    networks:
+      - hazelcast-net
+
+  hazelcast-management-center:
+    image: hazelcast/management-center
+    container_name: hazelcast-management-center
+    environment:
+#      - MC_CLUSTER_MEMBERS=10.81.86.105:5701,10.81.86.105:5702
+      - MC_SERVER_PORT=8080
+    ports:
+      - "8200:8080"
+    networks:
+      - hazelcast-net
+
+networks:
+  hazelcast-net:
