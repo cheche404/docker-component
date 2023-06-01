@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   hazelcast-node-1:
-    image: hazelcast/hazelcast
+    image: hazelcast/hazelcast:5.2.1
     container_name: hazelcast1
     environment:
       - JAVA_OPTS=-Dhazelcast.local.publicAddress=10.81.86.105:5701
@@ -15,7 +15,7 @@ services:
       - hazelcast-net
 
   hazelcast-node-2:
-    image: hazelcast/hazelcast
+    image: hazelcast/hazelcast:5.2.1
     container_name: hazelcast2
     environment:
       - JAVA_OPTS=-Dhazelcast.local.publicAddress=10.81.86.105:5702

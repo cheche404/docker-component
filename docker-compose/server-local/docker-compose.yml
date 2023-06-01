@@ -190,3 +190,10 @@ services:
     environment:
       GF_SERVER_ROOT_URL: http://localhost:3000
       GF_SECURITY_ADMIN_PASSWORD: dongyang106
+
+  redisinsight:
+    image: redislabs/redisinsight:latest
+    container_name: redisinsight
+    ports:
+      - "8001:8001"
+
