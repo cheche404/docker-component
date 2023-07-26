@@ -7,7 +7,7 @@ services:
       - "9991:9991"
     environment:
       - MYSQL_USER=root
-      - MYSQL_PASS=password
+      - MYSQL_PASS=dongyang106
       - MYSQL_HOST=db
       - MYSQL_PORT=3306
     depends_on:
