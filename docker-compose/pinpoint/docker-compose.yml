@@ -1,7 +1,7 @@
 version: '3'
 services:
   pinpoint-collector:
-    image: pinpoint-apm/pinpoint-collector:latest
+    image: pinpointdocker/pinpoint-collector:latest
     container_name: pinpoint-collector
     ports:
       - "9991:9991"
@@ -14,7 +14,7 @@ services:
       - db
 
   pinpoint-web:
-    image: pinpoint-apm/pinpoint-web:latest
+    image: pinpointdocker/pinpoint-web:latest
     container_name: pinpoint-web
     ports:
       - "8080:8080"
